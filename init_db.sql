@@ -1,7 +1,7 @@
-CREATE TABLE Apartment (
+CREATE TABLE apartment (
     id SERIAL PRIMARY KEY,
     owner VARCHAR(100) NOT NULL,
-    street VARCHAR(100), 
+    street VARCHAR(100),
     n_of_house INT,
     n_of_apartment INT
 );
