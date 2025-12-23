@@ -13,7 +13,7 @@ class ApartmentCreate(ApartmentBase):
 class Apartment(ApartmentBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ChoreTypeBase(BaseModel):
     name: str
@@ -26,7 +26,7 @@ class ChoreTypeCreate(ChoreTypeBase):
 class ChoreType(ChoreTypeBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PaymentBase(BaseModel):
     chore_id: int
@@ -41,4 +41,4 @@ class PaymentCreate(PaymentBase):
 class Payment(PaymentBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
