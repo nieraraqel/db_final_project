@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from ..database import SessionLocal
-from .. import schemas, crud
+from .. import schemas, crud, models
 
 router = APIRouter(prefix="/payments", tags=["Payment"])
 
@@ -21,8 +21,12 @@ def read(payment_id: int, db: Session = Depends(get_db)):
     return crud.get_payment(db, payment_id)
 
 @router.get("/", response_model=list[schemas.Payment])
-def read_all(db: Session = Depends(get_db)):
-    return crud.get_payments(db)
+def read_all(
+    page: int = Query(1, ge=1),
+    size: int = Query(10, ge=1, le=100),
+    db: Session = Depends(get_db),
+):
+    return crud.get_payments(db, page=page, size=size)
 
 @router.put("/{payment_id}", response_model=schemas.Payment)
 def update(payment_id: int, payment: schemas.PaymentCreate, db: Session = Depends(get_db)):
