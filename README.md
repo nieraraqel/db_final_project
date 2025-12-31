@@ -35,9 +35,14 @@ DB_PASSWORD=1234
 DB_NAME=utility_payments
 DB_HOST=localhost
 DB_PORT=5432
+
+DB_SUPERUSER=postgres
+DB_SUPERUSER_PASSWORD=postgres
 ```
 
 Make sure the user exists in PostgreSQL and has permission to create databases.
+
+Make sure `DB_SUPERUSER_PASSWORD` matches the PostgreSQL superuser password.
 
 ## Database Initialization
 
@@ -52,6 +57,8 @@ python create_db.py
 This will:
 
 - Create the `property_management` database if it doesn't exist
+
+- Connect as superuser (`DB_SUPERUSER`)
 
 - Set the owner to the user defined in `.env`
 
