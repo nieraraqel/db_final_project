@@ -44,7 +44,9 @@ Make sure the user exists in PostgreSQL and has permission to create databases.
 
 Make sure `DB_SUPERUSER_PASSWORD` matches the PostgreSQL superuser password.
 
-## Database Initialization
+## Database Initialization and Populate Data
+
+Before running the API for the first time, you should create the database and populate it with some initial data.
 
 ### Create the database
 
@@ -62,15 +64,23 @@ This will:
 
 - Set the owner to the user defined in `.env`
 
-### Create tables
+### Populate the database
 
-After the database is ready, run:
+Populate the database via REST API:
 
 ```
-python create_tables.py
+python scripts/populate.py
 ```
 
-This will create all tables (`Apartment`, `ChoreType`, `Payment`) according to the schema in `init_db.sql`.
+This will add sample:
+
+- Chore types
+
+- Apartments
+
+- Payments
+
+After this, the API is ready to use with test data.
 
 ## Running the Project
 
