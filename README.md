@@ -32,7 +32,7 @@ Create a .env file in the root of the project with:
 ```
 DB_USER=postgres
 DB_PASSWORD=1234
-DB_NAME=utility_payments
+DB_NAME=property_management
 DB_HOST=localhost
 DB_PORT=5432
 

@@ -7,7 +7,7 @@ load_dotenv()
 
 DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "1234")
-DB_NAME = os.getenv("DB_NAME", "utility_payments")
+DB_NAME = os.getenv("DB_NAME", "property_management")
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", 5432)
 
